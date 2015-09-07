@@ -52,6 +52,7 @@ class CustomBlockEditForm extends Form {
 		// add the tiny MCE script 
 		$this->addTinyMCE();
 		$this->setData('blockContent', $plugin->getSetting($journalId, 'blockContent'));
+		$this->setData('privateBlock', $plugin->getSetting($journalId, 'privateBlock'));
 	}
 
 	/**
@@ -95,6 +96,7 @@ class CustomBlockEditForm extends Form {
 	 */
 	function readInputData() {
 		$this->readUserVars(array('blockContent'));
+		$this->readUserVars(array('privateBlock'));
 	}
 	
 	/**
@@ -111,7 +113,8 @@ class CustomBlockEditForm extends Form {
 	function save() {
 		$plugin =& $this->plugin;
 		$journalId = $this->journalId;
-		$plugin->updateSetting($journalId, 'blockContent', $this->getData('blockContent'));		
+		$plugin->updateSetting($journalId, 'blockContent', $this->getData('blockContent'));	
+		$plugin->updateSetting($journalId, 'privateBlock', $this->getData('privateBlock'));			
 	}
 
 }

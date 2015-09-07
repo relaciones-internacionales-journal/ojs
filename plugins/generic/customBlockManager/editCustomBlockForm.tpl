@@ -37,6 +37,11 @@
 	</tr>
 </table>
 
+<hr/>
+<p><strong>{translate key="plugins.generic.customBlock.makePrivate"}:</strong></p>
+<input type="radio" value="1" name="privateBlock" {if $privateBlock == '1'} checked="checked" {/if} />{translate key="common.yes"}
+<input type="radio" value="0" name="privateBlock" {if $privateBlock == '0'} checked="checked" {/if} />{translate key="common.no"}
+
 <p><input type="submit" value="{translate key="common.save"}" class="button defaultButton" />
 <input type="button" value="{translate key="common.cancel"}" class="button" onclick="document.location.href='{plugin_url path="settings"}'" /></p>
 

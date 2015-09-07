@@ -190,6 +190,7 @@ class CustomBlockPlugin extends BlockPlugin {
 		$locale = AppLocale::getLocale();
 		$primaryLocale = AppLocale::getPrimaryLocale();
 		$blockContent = $this->getSetting($journalId, 'blockContent');
+		$privateBlockOption = $this->getSetting($journalId, 'privateBlock');
 		$blockContentLocale = '';
 	
 		if (array_key_exists($locale, $blockContent)) {
@@ -199,6 +200,7 @@ class CustomBlockPlugin extends BlockPlugin {
 		$id = 'customblock-'.preg_replace('/\W+/', '-', $this->blockName);
 		$templateMgr->assign('customBlockId', $id);
 		$templateMgr->assign('customBlockContent', $blockContentLocale);
+		$templateMgr->assign('privateBlockOption', $privateBlockOption);
 		return parent::getContents($templateMgr);
 	}
 
